@@ -61,4 +61,7 @@ for i in range(0, 50):
     print(f"W:\n{nn.weights1}\n\n{nn.weights2}")
     print("=====")
 
-print(f"output:\n{nn.output}\n")
+rs_axis=0
+rs = nn.output.sum(axis=rs_axis)/nn.output.shape[rs_axis]
+np.set_printoptions(precision=10, suppress=True)
+print(f"output:\n{rs}\n")
