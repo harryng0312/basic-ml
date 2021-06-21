@@ -1,3 +1,4 @@
+# ref: https://viblo.asia/p/cach-xay-dung-mot-mang-no-ron-don-gian-chi-bang-python-1VgZv1nRKAw
 import numpy as np
 
 
