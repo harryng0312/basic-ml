@@ -3,10 +3,14 @@ from sklearn.datasets import openml, fetch_openml
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-mnist = fetch_openml('mnist_784', data_home='../data/', cache=True, as_frame=False)
-X = mnist.data
-y = mnist.target
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=10000)
+means = [[-1, -1], [1, -1], [0, 1]]
+cov = [[1, 0], [0, 1]]
+N = 20
+X0 = np.random.multivariate_normal(means[0], cov, N)
+X1 = np.random.multivariate_normal(means[1], cov, N)
+X2 = np.random.multivariate_normal(means[2], cov, N)
+X = np.concatenate((X0, X1, X2), axis = 0)
+y = np.asarray([0]*N + [1]*N + [2]*N)
 
 
 def softmax_stable(Z):
